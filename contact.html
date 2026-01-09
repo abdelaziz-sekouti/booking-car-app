@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CarRent Premium Car Rental Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-car text-blue-600 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl text-gray-800">CarRent</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">About</a>
+                    <a href="services.html"
+                        class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+                    <a href="blog.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Blog</a>
+                    <a href="contact.html" class="nav-link text-blue-600 font-semibold">Contact</a>
+                    <div id="auth-menu" class="flex items-center space-x-4">
+                        <!-- Auth buttons will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Home</a>
+                <a href="about.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">About</a>
+                <a href="services.html"
+                    class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Services</a>
+                <a href="blog.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Blog</a>
+                <a href="contact.html" class="mobile-nav-link block px-3 py-2 text-blue-600 font-semibold">Contact</a>
+                <div id="mobile-auth-menu" class="px-3 py-2 space-y-2">
+                    <!-- Mobile auth buttons will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+                    <p class="text-xl md:text-2xl text-blue-100">Get in touch with our team</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-semibold mb-6">Send us a Message</h2>
+                        <form id="contact-form">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                                    Name
+                                </label>
+                                <input
+                                    class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                                    id="name" type="text" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                                    Email
+                                </label>
+                                <input
+                                    class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                                    id="email" type="email" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                                    Phone (Optional)
+                                </label>
+                                <input
+                                    class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                                    id="phone" type="tel">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="subject">
+                                    Subject
+                                </label>
+                                <select
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                                    id="subject" required>
+                                    <option value="">Select a subject...</option>
+                                    <option value="booking">Booking Inquiry</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="billing">Billing Question</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+                                    Message
+                                </label>
+                                <textarea
+                                    class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                                    id="message" rows="4" required></textarea>
+                            </div>
+                            <div class="mb-6">
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="consent" class="mr-2" required>
+                                    <span class="text-sm text-gray-600">I agree to be contacted regarding my
+                                        inquiry</span>
+                                </label>
+                            </div>
+                            <button type="submit"
+                                class="btn-primary bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors w-full">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info & Map -->
+                    <div>
+                        <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+                            <h2 class="text-2xl font-semibold mb-6">Contact Information</h2>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div
+                                        class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-user text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold mb-1">Company</div>
+                                        <div class="text-gray-600">CarRent Premium Services</div>
+                                        <div class="text-gray-600">Sekouti Abdelaziz, Founder</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div
+                                        class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-phone text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold mb-1">Phone</div>
+                                        <div class="text-gray-600">+212612236660</div>
+                                        <div class="text-sm text-gray-500">Available 24/7 for emergencies</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div
+                                        class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-envelope text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold mb-1">Email</div>
+                                        <div class="text-gray-600">sekoutiabdelaziz0@gmail.com</div>
+                                        <div class="text-sm text-gray-500">We respond within 24 hours</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div
+                                        class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-clock text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold mb-1">Business Hours</div>
+                                        <div class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</div>
+                                        <div class="text-gray-600">Saturday: 10:00 AM - 4:00 PM</div>
+                                        <div class="text-gray-600">Sunday: Closed</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div
+                                        class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold mb-1">Service Area</div>
+                                        <div class="text-gray-600">Morocco - Nationwide Coverage</div>
+                                        <div class="text-gray-600">Airport delivery available</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Connect With Us</h3>
+                            <div class="flex space-x-4">
+                                <a href="https://facebook.com" target="_blank"
+                                    class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://twitter.com" target="_blank"
+                                    class="bg-blue-400 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://instagram.com" target="_blank"
+                                    class="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://linkedin.com" target="_blank"
+                                    class="bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://wa.me/212612236660" target="_blank"
+                                    class="bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="py-12 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4">Our Location</h3>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3397.8737406894465!2d-7.967565875610219!3d31.609919264739553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sma!4v1767965182695!5m2!1sen!2sma"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+                    <p class="text-xl text-gray-600">Quick answers to common questions</p>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg shadow-lg">
+                            <button
+                                class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none"
+                                onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span class="font-semibold">What documents do I need to rent a car?</span>
+                                <i class="fas fa-chevron-down text-gray-400"></i>
+                            </button>
+                            <div class="hidden px-6 pb-4 text-gray-600">
+                                You'll need a valid driver's license, credit card, and a form of identification.
+                                International visitors may need an International Driving Permit.
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-lg">
+                            <button
+                                class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none"
+                                onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span class="font-semibold">Can I cancel my reservation?</span>
+                                <i class="fas fa-chevron-down text-gray-400"></i>
+                            </button>
+                            <div class="hidden px-6 pb-4 text-gray-600">
+                                Yes, you can cancel up to 24 hours before your rental start time for a full refund.
+                                Cancellations within 24 hours may incur a fee.
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-lg">
+                            <button
+                                class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none"
+                                onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span class="font-semibold">Is insurance included in the rental price?</span>
+                                <i class="fas fa-chevron-down text-gray-400"></i>
+                            </button>
+                            <div class="hidden px-6 pb-4 text-gray-600">
+                                Basic insurance is included in all rentals. Additional coverage options are available
+                                for purchase at the time of rental.
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-lg">
+                            <button
+                                class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none"
+                                onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span class="font-semibold">Do you offer airport pickup/drop-off?</span>
+                                <i class="fas fa-chevron-down text-gray-400"></i>
+                            </button>
+                            <div class="hidden px-6 pb-4 text-gray-600">
+                                Yes, we offer pickup and drop-off services at major airports across Morocco for an
+                                additional fee.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 bg-blue-600 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
+                <p class="text-xl mb-8 text-blue-100">Book your perfect car today and experience the CarRent difference
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="window.location.href='index.html'"
+                        class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Browse Cars
+                    </button>
+                    <button onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'})"
+                        class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                        Get Quote
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-car text-blue-400 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl">CarRent</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">Your trusted partner for premium car rental services. Experience
+                        comfort, reliability, and excellence.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-blue-400 transition-colors">Home</a>
+                        </li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-blue-400 transition-colors">About</a>
+                        </li>
+                        <li><a href="services.html"
+                                class="text-gray-300 hover:text-blue-400 transition-colors">Services</a></li>
+                        <li><a href="blog.html" class="text-gray-300 hover:text-blue-400 transition-colors">Blog</a>
+                        </li>
+                        <li><a href="contact.html"
+                                class="text-gray-300 hover:text-blue-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contact Info</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-user mr-2"></i>
+                            Sekouti Abdelaziz
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-phone mr-2"></i>
+                            +212612236660
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-envelope mr-2"></i>
+                            sekoutiabdelaziz0@gmail.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2024 CarRent. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/212612236660" target="_blank"
+        class="whatsapp-float bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 fixed bottom-6 right-6 z-40">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Modals -->
+    <div id="modal-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+
+</html>

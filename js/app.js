@@ -16,7 +16,7 @@ class CarRentApp {
         // Handle navigation clicks
         document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
+                // e.preventDefault();
                 const page = link.getAttribute('href').substring(1);
                 this.loadPage(page);
                 this.closeMobileMenu();
@@ -50,11 +50,11 @@ class CarRentApp {
 
     async loadPage(page) {
         const mainContent = document.getElementById('main-content');
-        
+
         try {
             let content = '';
-            
-            switch(page) {
+
+            switch (page) {
                 case 'home':
                     content = await this.getHomePage();
                     break;
@@ -79,13 +79,13 @@ class CarRentApp {
                 default:
                     content = await this.getHomePage();
             }
-            
+
             mainContent.innerHTML = content;
             this.currentPage = page;
-            
+
             // Initialize page-specific functionality
             this.initializePage(page);
-            
+
         } catch (error) {
             console.error('Error loading page:', error);
             mainContent.innerHTML = '<div class="text-center py-20"><h2 class="text-2xl font-bold text-red-600">Page not found</h2></div>';
@@ -541,7 +541,7 @@ class CarRentApp {
     }
 
     initializePage(page) {
-        switch(page) {
+        switch (page) {
             case 'home':
                 this.loadCars();
                 break;
@@ -562,7 +562,7 @@ class CarRentApp {
         if (!carsContainer) return;
 
         const cars = JSON.parse(localStorage.getItem('cars')) || this.getDefaultCars();
-        
+
         carsContainer.innerHTML = cars.map(car => `
             <div class="car-card bg-white rounded-lg shadow-lg overflow-hidden">
                 <div class="bg-gray-200 h-48 flex items-center justify-center">
@@ -594,7 +594,7 @@ class CarRentApp {
 
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
@@ -611,7 +611,7 @@ class CarRentApp {
 
             // Show success message
             this.showNotification('Message sent successfully! We will get back to you soon.', 'success');
-            
+
             // Reset form
             contactForm.reset();
         });
@@ -629,7 +629,7 @@ class CarRentApp {
         // Load booking history
         const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
         const userBookings = bookings.filter(booking => booking.userId === user.id);
-        
+
         document.getElementById('profile-bookings').textContent = userBookings.length;
 
         const bookingHistory = document.getElementById('booking-history');
@@ -722,7 +722,7 @@ class CarRentApp {
         `;
 
         document.getElementById('modal-container').innerHTML = modalHTML;
-        
+
         // Setup form submission
         document.getElementById('booking-form').addEventListener('submit', (e) => {
             e.preventDefault();
@@ -784,15 +784,14 @@ class CarRentApp {
 
     showNotification(message, type = 'info') {
         const notification = document.createElement('div');
-        notification.className = `fixed top-20 right-4 z-50 p-4 rounded-lg shadow-lg ${
-            type === 'success' ? 'bg-green-500' : 
-            type === 'error' ? 'bg-red-500' : 
-            'bg-blue-500'
-        } text-white`;
+        notification.className = `fixed top-20 right-4 z-50 p-4 rounded-lg shadow-lg ${type === 'success' ? 'bg-green-500' :
+                type === 'error' ? 'bg-red-500' :
+                    'bg-blue-500'
+            } text-white`;
         notification.textContent = message;
-        
+
         document.body.appendChild(notification);
-        
+
         setTimeout(() => {
             notification.remove();
         }, 3000);
@@ -818,7 +817,7 @@ class CarRentApp {
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </button>
             `;
-            
+
             authMenu.innerHTML = authButtons;
             mobileAuthMenu.innerHTML = authButtons;
         } else {
@@ -830,7 +829,7 @@ class CarRentApp {
                     Sign Up
                 </button>
             `;
-            
+
             authMenu.innerHTML = authButtons;
             mobileAuthMenu.innerHTML = authButtons;
         }

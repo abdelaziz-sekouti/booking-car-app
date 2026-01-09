@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - CarRent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-car text-blue-600 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl text-gray-800">CarRent</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">About</a>
+                    <a href="services.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+                    <a href="blog.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Blog</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+                    <div id="auth-menu" class="flex items-center space-x-4">
+                        <!-- Auth buttons will be inserted here -->
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Home</a>
+                <a href="about.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">About</a>
+                <a href="services.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Services</a>
+                <a href="blog.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Blog</a>
+                <a href="contact.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Contact</a>
+                <div id="mobile-auth-menu" class="px-3 py-2 space-y-2">
+                    <!-- Mobile auth buttons will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Profile Header -->
+        <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">My Profile</h1>
+                    <p class="text-blue-100">Manage your account and booking history</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Content -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                    <!-- Profile Sidebar -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-white rounded-lg shadow-lg p-6 sticky top-24">
+                            <div class="text-center mb-6">
+                                <div class="bg-gray-200 w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-user text-gray-400 text-3xl"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold" id="profile-name">User Name</h3>
+                                <p class="text-gray-600" id="profile-email">user@example.com</p>
+                                <span class="inline-block mt-2 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                                    Member
+                                </span>
+                            </div>
+                            
+                            <div class="space-y-3 pt-6 border-t">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Member Since:</span>
+                                    <span id="profile-since">2024</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Total Bookings:</span>
+                                    <span id="profile-bookings">0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Total Spent:</span>
+                                    <span id="profile-spent">$0</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 space-y-2">
+                                <button onclick="editProfile()" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                    <i class="fas fa-edit mr-2"></i> Edit Profile
+                                </button>
+                                <button onclick="changePassword()" class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                                    <i class="fas fa-key mr-2"></i> Change Password
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Main Content Area -->
+                    <div class="lg:col-span-3">
+                        <!-- Tabs -->
+                        <div class="bg-white rounded-lg shadow-lg mb-6">
+                            <div class="border-b">
+                                <nav class="flex space-x-8 px-6" aria-label="Tabs">
+                                    <button onclick="showTab('bookings')" class="profile-tab py-4 px-1 border-b-2 font-medium text-sm border-blue-500 text-blue-600">
+                                        Bookings
+                                    </button>
+                                    <button onclick="showTab('wishlist')" class="profile-tab py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                                        Wishlist
+                                    </button>
+                                    <button onclick="showTab('settings')" class="profile-tab py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                                        Settings
+                                    </button>
+                                    <button onclick="showTab('notifications')" class="profile-tab py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                                        Notifications
+                                    </button>
+                                </nav>
+                            </div>
+                            
+                            <!-- Tab Content -->
+                            <div class="p-6">
+                                <!-- Bookings Tab -->
+                                <div id="bookings-tab" class="tab-content">
+                                    <div class="flex justify-between items-center mb-6">
+                                        <h3 class="text-xl font-semibold">Booking History</h3>
+                                        <button onclick="window.location.href='index.html'" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                            <i class="fas fa-plus mr-2"></i> New Booking
+                                        </button>
+                                    </div>
+                                    
+                                    <div id="booking-history" class="space-y-4">
+                                        <!-- Bookings will be loaded here -->
+                                    </div>
+                                </div>
+                                
+                                <!-- Wishlist Tab -->
+                                <div id="wishlist-tab" class="tab-content hidden">
+                                    <h3 class="text-xl font-semibold mb-6">My Wishlist</h3>
+                                    <div class="text-center py-12">
+                                        <i class="fas fa-heart text-gray-300 text-6xl mb-4"></i>
+                                        <p class="text-gray-500 mb-4">Your wishlist is empty</p>
+                                        <button onclick="window.location.href='index.html'" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                                            Browse Cars
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Settings Tab -->
+                                <div id="settings-tab" class="tab-content hidden">
+                                    <h3 class="text-xl font-semibold mb-6">Account Settings</h3>
+                                    
+                                    <div class="space-y-6">
+                                        <!-- Personal Information -->
+                                        <div>
+                                            <h4 class="font-medium mb-4">Personal Information</h4>
+                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <label class="block text-gray-700 text-sm font-bold mb-2">First Name</label>
+                                                    <input type="text" id="first-name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-gray-700 text-sm font-bold mb-2">Last Name</label>
+                                                    <input type="text" id="last-name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                                                    <input type="email" id="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-gray-700 text-sm font-bold mb-2">Phone</label>
+                                                    <input type="tel" id="phone" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Preferences -->
+                                        <div>
+                                            <h4 class="font-medium mb-4">Preferences</h4>
+                                            <div class="space-y-3">
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" id="email-notifications" checked class="mr-3">
+                                                    <span>Email notifications for bookings</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" id="sms-notifications" class="mr-3">
+                                                    <span>SMS notifications</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="checkbox" id="newsletter" checked class="mr-3">
+                                                    <span>Receive newsletter and offers</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex justify-end">
+                                            <button onclick="saveSettings()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                                                Save Changes
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Notifications Tab -->
+                                <div id="notifications-tab" class="tab-content hidden">
+                                    <h3 class="text-xl font-semibold mb-6">Notifications</h3>
+                                    <div class="text-center py-12">
+                                        <i class="fas fa-bell text-gray-300 text-6xl mb-4"></i>
+                                        <p class="text-gray-500">No new notifications</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-car text-blue-400 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl">CarRent</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">Your trusted partner for premium car rental services. Experience comfort, reliability, and excellence.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-blue-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-blue-400 transition-colors">About</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-blue-400 transition-colors">Services</a></li>
+                        <li><a href="blog.html" class="text-gray-300 hover:text-blue-400 transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-blue-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contact Info</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-user mr-2"></i>
+                            Sekouti Abdelaziz
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-phone mr-2"></i>
+                            +212612236660
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-envelope mr-2"></i>
+                            sekoutiabdelaziz0@gmail.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2024 CarRent. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/212612236660" target="_blank" class="whatsapp-float bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 fixed bottom-6 right-6 z-40">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Modals -->
+    <div id="modal-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/navigation.js"></script>
+    <script>
+        // Profile page specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in
+            const user = auth.getCurrentUser();
+            if (!user) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Load user profile
+            loadUserProfile();
+        });
+        
+        function loadUserProfile() {
+            const user = auth.getCurrentUser();
+            const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+            const userBookings = bookings.filter(booking => booking.userId === user.id);
+            
+            // Update profile info
+            document.getElementById('profile-name').textContent = user.name;
+            document.getElementById('profile-email').textContent = user.email;
+            document.getElementById('profile-since').textContent = new Date(user.createdAt).getFullYear();
+            document.getElementById('profile-bookings').textContent = userBookings.length;
+            
+            // Calculate total spent
+            const totalSpent = userBookings.reduce((sum, booking) => {
+                const price = parseInt(booking.totalPrice.replace(/[^0-9]/g, ''));
+                return sum + price;
+            }, 0);
+            document.getElementById('profile-spent').textContent = `$${totalSpent.toLocaleString()}`;
+            
+            // Load booking history
+            loadBookingHistory(userBookings);
+            
+            // Load settings form
+            document.getElementById('first-name').value = user.name.split(' ')[0] || '';
+            document.getElementById('last-name').value = user.name.split(' ')[1] || '';
+            document.getElementById('email').value = user.email;
+        }
+        
+        function loadBookingHistory(userBookings) {
+            const bookingHistory = document.getElementById('booking-history');
+            
+            if (userBookings.length === 0) {
+                bookingHistory.innerHTML = `
+                    <div class="text-center py-12">
+                        <i class="fas fa-calendar text-gray-300 text-6xl mb-4"></i>
+                        <p class="text-gray-500 mb-4">You haven't made any bookings yet</p>
+                        <button onclick="window.location.href='index.html'" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                            Book Your First Car
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            bookingHistory.innerHTML = userBookings.map(booking => `
+                <div class="border rounded-lg p-6 hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <div class="flex items-center mb-2">
+                                <h4 class="text-lg font-semibold mr-3">${booking.carName}</h4>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                                    ${booking.status}
+                                </span>
+                            </div>
+                            <div class="text-gray-600 mb-3">
+                                <i class="fas fa-calendar mr-2"></i>${booking.startDate} - ${booking.endDate}
+                            </div>
+                            <div class="text-gray-600 mb-3">
+                                <i class="fas fa-dollar-sign mr-2"></i>${booking.totalPrice}
+                            </div>
+                            ${booking.requests ? `
+                                <div class="text-sm text-gray-500">
+                                    <i class="fas fa-comment mr-1"></i> ${booking.requests}
+                                </div>
+                            ` : ''}
+                        </div>
+                        <div class="flex space-x-2 ml-4">
+                            <button onclick="viewBookingDetails('${booking.id}')" class="text-blue-600 hover:text-blue-700">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            ${booking.status === 'confirmed' ? `
+                                <button onclick="cancelBooking('${booking.id}')" class="text-red-600 hover:text-red-700">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            
+            // Remove active state from all tab buttons
+            document.querySelectorAll('.profile-tab').forEach(button => {
+                button.classList.remove('border-blue-500', 'text-blue-600');
+                button.classList.add('border-transparent', 'text-gray-500');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.remove('hidden');
+            
+            // Add active state to clicked button
+            event.target.classList.remove('border-transparent', 'text-gray-500');
+            event.target.classList.add('border-blue-500', 'text-blue-600');
+        }
+        
+        function editProfile() {
+            showTab('settings');
+        }
+        
+        function changePassword() {
+            const modalHTML = `
+                <div class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+                        <h3 class="text-2xl font-bold mb-6">Change Password</h3>
+                        
+                        <form id="change-password-form">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Current Password</label>
+                                <input type="password" id="current-password" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">New Password</label>
+                                <input type="password" id="new-password" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Confirm New Password</label>
+                                <input type="password" id="confirm-password" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <button type="submit" class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                    Update Password
+                                </button>
+                                <button type="button" onclick="closeModal()" class="flex-1 bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('modal-container').innerHTML = modalHTML;
+            
+            document.getElementById('change-password-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // In a real app, this would update the password
+                app.showNotification('Password updated successfully!', 'success');
+                closeModal();
+            });
+        }
+        
+        function saveSettings() {
+            const user = auth.getCurrentUser();
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+            
+            // Update user data
+            user.name = `${firstName} ${lastName}`;
+            user.email = email;
+            
+            // Update in localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const userIndex = users.findIndex(u => u.id === user.id);
+            if (userIndex !== -1) {
+                users[userIndex] = user;
+                localStorage.setItem('users', JSON.stringify(users));
+                localStorage.setItem('currentUser', JSON.stringify(user));
+            }
+            
+            app.showNotification('Settings saved successfully!', 'success');
+            loadUserProfile();
+        }
+        
+        function viewBookingDetails(bookingId) {
+            const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+            const booking = bookings.find(b => b.id === bookingId);
+            
+            if (!booking) return;
+            
+            const modalHTML = `
+                <div class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+                        <h3 class="text-2xl font-bold mb-6">Booking Details</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <span class="font-semibold">Booking ID:</span> #${booking.id}
+                            </div>
+                            <div>
+                                <span class="font-semibold">Car:</span> ${booking.carName}
+                            </div>
+                            <div>
+                                <span class="font-semibold">Start Date:</span> ${booking.startDate}
+                            </div>
+                            <div>
+                                <span class="font-semibold">End Date:</span> ${booking.endDate}
+                            </div>
+                            <div>
+                                <span class="font-semibold">Days:</span> ${booking.days}
+                            </div>
+                            <div>
+                                <span class="font-semibold">Total Price:</span> ${booking.totalPrice}
+                            </div>
+                            <div>
+                                <span class="font-semibold">Status:</span> 
+                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                                    ${booking.status}
+                                </span>
+                            </div>
+                            ${booking.requests ? `
+                                <div>
+                                    <span class="font-semibold">Special Requests:</span><br>
+                                    ${booking.requests}
+                                </div>
+                            ` : ''}
+                        </div>
+                        
+                        <div class="mt-6">
+                            <button onclick="closeModal()" class="w-full bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('modal-container').innerHTML = modalHTML;
+        }
+        
+        function cancelBooking(bookingId) {
+            if (confirm('Are you sure you want to cancel this booking?')) {
+                const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+                const booking = bookings.find(b => b.id === bookingId);
+                
+                if (booking) {
+                    booking.status = 'cancelled';
+                    localStorage.setItem('bookings', JSON.stringify(bookings));
+                    
+                    app.showNotification('Booking cancelled successfully', 'success');
+                    loadUserProfile();
+                }
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('modal-container').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

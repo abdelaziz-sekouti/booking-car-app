@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - CarRent Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-car text-blue-600 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl text-gray-800">CarRent Admin</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Main Site</a>
+                    <a href="admin.html" class="nav-link text-blue-600 font-semibold">Dashboard</a>
+                    <div id="auth-menu" class="flex items-center space-x-4">
+                        <!-- Auth buttons will be inserted here -->
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Main Site</a>
+                <a href="admin.html" class="mobile-nav-link block px-3 py-2 text-blue-600 font-semibold">Dashboard</a>
+                <div id="mobile-auth-menu" class="px-3 py-2 space-y-2">
+                    <!-- Mobile auth buttons will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Admin Header -->
+        <section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-2">Admin Dashboard</h1>
+                        <p class="text-purple-100">Manage your car rental business</p>
+                    </div>
+                    <div id="admin-user-info" class="text-right">
+                        <!-- Admin user info will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Overview -->
+        <section class="py-8 bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-car text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-blue-600" id="total-cars">0</div>
+                                <div class="text-gray-600">Total Cars</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <div class="flex items-center">
+                            <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-calendar-check text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-green-600" id="total-bookings">0</div>
+                                <div class="text-gray-600">Total Bookings</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-6 rounded-lg">
+                        <div class="flex items-center">
+                            <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-purple-600" id="total-users">0</div>
+                                <div class="text-gray-600">Total Users</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-6 rounded-lg">
+                        <div class="flex items-center">
+                            <div class="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-dollar-sign text-yellow-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-yellow-600" id="total-revenue">$0</div>
+                                <div class="text-gray-600">Total Revenue</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Content -->
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                    <!-- Admin Sidebar -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-white rounded-lg shadow-lg p-6 sticky top-24">
+                            <h3 class="font-semibold mb-6 text-lg">Management</h3>
+                            <nav class="space-y-2">
+                                <button onclick="admin.showCarsManagement()" class="admin-nav-btn w-full text-left px-4 py-3 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors flex items-center">
+                                    <i class="fas fa-car mr-3"></i>
+                                    <span>Cars</span>
+                                    <span class="ml-auto bg-blue-600 text-white text-xs px-2 py-1 rounded-full" id="cars-count">0</span>
+                                </button>
+                                <button onclick="admin.showBookingsManagement()" class="admin-nav-btn w-full text-left px-4 py-3 hover:bg-gray-50 rounded-lg transition-colors flex items-center">
+                                    <i class="fas fa-calendar mr-3"></i>
+                                    <span>Bookings</span>
+                                    <span class="ml-auto bg-gray-400 text-white text-xs px-2 py-1 rounded-full" id="bookings-count">0</span>
+                                </button>
+                                <button onclick="admin.showUsersManagement()" class="admin-nav-btn w-full text-left px-4 py-3 hover:bg-gray-50 rounded-lg transition-colors flex items-center">
+                                    <i class="fas fa-users mr-3"></i>
+                                    <span>Users</span>
+                                    <span class="ml-auto bg-gray-400 text-white text-xs px-2 py-1 rounded-full" id="users-count">0</span>
+                                </button>
+                                <button onclick="admin.showAnalytics()" class="admin-nav-btn w-full text-left px-4 py-3 hover:bg-gray-50 rounded-lg transition-colors flex items-center">
+                                    <i class="fas fa-chart-line mr-3"></i>
+                                    <span>Analytics</span>
+                                </button>
+                                <button onclick="admin.showSettings()" class="admin-nav-btn w-full text-left px-4 py-3 hover:bg-gray-50 rounded-lg transition-colors flex items-center">
+                                    <i class="fas fa-cog mr-3"></i>
+                                    <span>Settings</span>
+                                </button>
+                            </nav>
+                            
+                            <div class="mt-8 pt-6 border-t">
+                                <button onclick="admin.exportData()" class="w-full text-left px-4 py-3 text-green-600 hover:bg-green-50 rounded-lg transition-colors flex items-center">
+                                    <i class="fas fa-download mr-3"></i>
+                                    <span>Export Data</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Admin Content Area -->
+                    <div class="lg:col-span-3">
+                        <div id="admin-content" class="bg-white rounded-lg shadow-lg p-6">
+                            <!-- Default Dashboard View -->
+                            <div id="dashboard-view">
+                                <h2 class="text-2xl font-bold mb-6">Dashboard Overview</h2>
+                                
+                                <!-- Recent Activity -->
+                                <div class="mb-8">
+                                    <h3 class="text-lg font-semibold mb-4">Recent Activity</h3>
+                                    <div class="bg-gray-50 rounded-lg p-4">
+                                        <div id="recent-activity" class="space-y-3">
+                                            <!-- Activity items will be loaded here -->
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Quick Actions -->
+                                <div class="mb-8">
+                                    <h3 class="text-lg font-semibold mb-4">Quick Actions</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        <button onclick="admin.showAddCarModal()" class="bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                                            <i class="fas fa-plus mr-2"></i> Add New Car
+                                        </button>
+                                        <button onclick="admin.showBookingsManagement()" class="bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition-colors">
+                                            <i class="fas fa-calendar mr-2"></i> View Bookings
+                                        </button>
+                                        <button onclick="admin.showUsersManagement()" class="bg-purple-600 text-white px-4 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+                                            <i class="fas fa-users mr-2"></i> Manage Users
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- System Status -->
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-4">System Status</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="bg-green-50 p-4 rounded-lg">
+                                            <div class="flex items-center">
+                                                <div class="bg-green-100 w-3 h-3 rounded-full mr-3"></div>
+                                                <span class="font-medium">All Systems Operational</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-blue-50 p-4 rounded-lg">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-database text-blue-600 mr-3"></i>
+                                                <span class="font-medium">Database Synced</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center">
+                <p class="text-gray-300">&copy; 2024 CarRent Admin Panel. All rights reserved.</p>
+                <p class="text-gray-400 text-sm mt-2">Admin access requires proper authentication</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="modal-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        // Admin-specific initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is admin
+            const user = auth.getCurrentUser();
+            if (!user || user.role !== 'admin') {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Update admin user info
+            document.getElementById('admin-user-info').innerHTML = `
+                <div>
+                    <div class="font-semibold">${user.name}</div>
+                    <div class="text-sm text-purple-200">Administrator</div>
+                </div>
+            `;
+            
+            // Load dashboard stats
+            loadDashboardStats();
+        });
+        
+        function loadDashboardStats() {
+            // Get stats from localStorage
+            const cars = JSON.parse(localStorage.getItem('cars')) || [];
+            const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            
+            // Update stats
+            document.getElementById('total-cars').textContent = cars.length;
+            document.getElementById('total-bookings').textContent = bookings.length;
+            document.getElementById('total-users').textContent = users.length;
+            
+            // Calculate revenue
+            const revenue = bookings
+                .filter(b => b.status === 'confirmed' || b.status === 'completed')
+                .reduce((sum, booking) => {
+                    const price = parseInt(booking.totalPrice.replace(/[^0-9]/g, ''));
+                    return sum + price;
+                }, 0);
+            document.getElementById('total-revenue').textContent = `$${revenue.toLocaleString()}`;
+            
+            // Update sidebar counts
+            document.getElementById('cars-count').textContent = cars.length;
+            document.getElementById('bookings-count').textContent = bookings.length;
+            document.getElementById('users-count').textContent = users.length;
+            
+            // Load recent activity
+            loadRecentActivity();
+        }
+        
+        function loadRecentActivity() {
+            const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+            const recentBookings = bookings.slice(-5).reverse();
+            
+            const activityContainer = document.getElementById('recent-activity');
+            if (recentBookings.length === 0) {
+                activityContainer.innerHTML = '<p class="text-gray-500">No recent activity</p>';
+                return;
+            }
+            
+            activityContainer.innerHTML = recentBookings.map(booking => `
+                <div class="flex items-center justify-between py-2 border-b last:border-b-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-calendar text-blue-500 mr-3"></i>
+                        <div>
+                            <div class="font-medium">New Booking: ${booking.carName}</div>
+                            <div class="text-sm text-gray-500">${new Date(booking.createdAt).toLocaleDateString()}</div>
+                        </div>
+                    </div>
+                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">
+                        ${booking.status}
+                    </span>
+                </div>
+            `).join('');
+        }
+        
+        // Enhanced admin panel functionality
+        const enhancedAdmin = {
+            showAnalytics() {
+                const adminContent = document.getElementById('admin-content');
+                const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+                const cars = JSON.parse(localStorage.getItem('cars')) || [];
+                
+                adminContent.innerHTML = `
+                    <h2 class="text-2xl font-bold mb-6">Analytics Overview</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2">Monthly Revenue</h3>
+                            <div class="text-3xl font-bold">$${bookings.length * 150}</div>
+                            <div class="text-blue-100">Average per month</div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2">Booking Success Rate</h3>
+                            <div class="text-3xl font-bold">95%</div>
+                            <div class="text-green-100">Industry leading</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-4">Popular Cars</h3>
+                        <div class="space-y-3">
+                            ${cars.slice(0, 5).map(car => `
+                                <div class="flex justify-between items-center">
+                                    <span>${car.name}</span>
+                                    <div class="flex items-center">
+                                        <div class="w-32 bg-gray-200 rounded-full h-2 mr-3">
+                                            <div class="bg-blue-600 h-2 rounded-full" style="width: ${Math.random() * 100}%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600">${Math.floor(Math.random() * 50 + 10)} bookings</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            },
+            
+            showSettings() {
+                const adminContent = document.getElementById('admin-content');
+                
+                adminContent.innerHTML = `
+                    <h2 class="text-2xl font-bold mb-6">Settings</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-4">Business Information</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">Company Name</label>
+                                    <input type="text" value="CarRent" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">Contact Email</label>
+                                    <input type="email" value="sekoutiabdelaziz0@gmail.com" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">Phone</label>
+                                    <input type="tel" value="+212612236660" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2">Business Hours</label>
+                                    <input type="text" value="9:00 AM - 6:00 PM" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-4">Notification Settings</h3>
+                            <div class="space-y-3">
+                                <label class="flex items-center">
+                                    <input type="checkbox" checked class="mr-3">
+                                    <span>Email notifications for new bookings</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" checked class="mr-3">
+                                    <span>SMS notifications for urgent issues</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span>Weekly analytics reports</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-end">
+                            <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                                Save Settings
+                            </button>
+                        </div>
+                    </div>
+                `;
+            },
+            
+            exportData() {
+                const data = {
+                    cars: JSON.parse(localStorage.getItem('cars')) || [],
+                    bookings: JSON.parse(localStorage.getItem('bookings')) || [],
+                    users: JSON.parse(localStorage.getItem('users')) || [],
+                    exportedAt: new Date().toISOString()
+                };
+                
+                const dataStr = JSON.stringify(data, null, 2);
+                const dataBlob = new Blob([dataStr], { type: 'application/json' });
+                const url = URL.createObjectURL(dataBlob);
+                
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `carrent-data-${new Date().toISOString().split('T')[0]}.json`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+                
+                app.showNotification('Data exported successfully!', 'success');
+            }
+        };
+        
+        // Extend admin object
+        Object.assign(admin, enhancedAdmin);
+    </script>
+</body>
+</html>

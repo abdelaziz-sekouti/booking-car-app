@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Car Tips & Travel Articles | CarRent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-car text-blue-600 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl text-gray-800">CarRent</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">About</a>
+                    <a href="services.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+                    <a href="blog.html" class="nav-link text-blue-600 font-semibold">Blog</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+                    <div id="auth-menu" class="flex items-center space-x-4">
+                        <!-- Auth buttons will be inserted here -->
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Home</a>
+                <a href="about.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">About</a>
+                <a href="services.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Services</a>
+                <a href="blog.html" class="mobile-nav-link block px-3 py-2 text-blue-600 font-semibold">Blog</a>
+                <a href="contact.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Contact</a>
+                <div id="mobile-auth-menu" class="px-3 py-2 space-y-2">
+                    <!-- Mobile auth buttons will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Car Tips & Travel Blog</h1>
+                    <p class="text-xl md:text-2xl text-blue-100">Expert advice and travel inspiration for your next adventure</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Article -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2">
+                            <div class="bg-gray-200 h-64 md:h-full flex items-center justify-center">
+                                <i class="fas fa-road text-gray-400 text-6xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 p-8">
+                            <div class="text-sm text-gray-500 mb-2">Featured Article</div>
+                            <h2 class="text-3xl font-bold mb-4">The Ultimate Road Trip Guide: 10 Essential Tips for 2024</h2>
+                            <p class="text-gray-600 mb-6">Planning a road trip? Check out these essential tips to make your journey smooth, safe, and unforgettable. From vehicle preparation to navigation apps, we've got you covered.</p>
+                            <div class="flex items-center mb-6">
+                                <div class="bg-gray-200 w-10 h-10 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-user text-gray-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Sekouti Abdelaziz</div>
+                                    <div class="text-sm text-gray-500">March 15, 2024 • 8 min read</div>
+                                </div>
+                            </div>
+                            <button onclick="window.location.href='blog/ultimate-road-trip-guide.html'" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                                Read Full Article
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Categories -->
+        <section class="py-8 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors">All Posts</button>
+                    <button class="bg-white text-gray-700 px-4 py-2 rounded-full hover:bg-gray-100 transition-colors">Travel Tips</button>
+                    <button class="bg-white text-gray-700 px-4 py-2 rounded-full hover:bg-gray-100 transition-colors">Car Maintenance</button>
+                    <button class="bg-white text-gray-700 px-4 py-2 rounded-full hover:bg-gray-100 transition-colors">Destinations</button>
+                    <button class="bg-white text-gray-700 px-4 py-2 rounded-full hover:bg-gray-100 transition-colors">Safety</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Posts Grid -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Article 1 -->
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="bg-gray-200 h-48 flex items-center justify-center">
+                            <i class="fas fa-car text-gray-400 text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-sm text-gray-500 mb-2">March 15, 2024</div>
+                            <h3 class="text-xl font-semibold mb-3">10 Essential Road Trip Tips</h3>
+                            <p class="text-gray-600 mb-4">Planning a road trip? Check out these essential tips to make your journey smooth and enjoyable.</p>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gray-200 w-8 h-8 rounded-full mr-2 flex items-center justify-center">
+                                    <i class="fas fa-user text-gray-400 text-sm"></i>
+                                </div>
+                                <div class="text-sm text-gray-500">Sekouti Abdelaziz</div>
+                            </div>
+                            <a href="blog/road-trip-tips.html" class="text-blue-600 hover:text-blue-700 font-semibold">Read More →</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Article 2 -->
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="bg-gray-200 h-48 flex items-center justify-center">
+                            <i class="fas fa-car text-gray-400 text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-sm text-gray-500 mb-2">March 10, 2024</div>
+                            <h3 class="text-xl font-semibold mb-3">How to Choose the Right Rental Car</h3>
+                            <p class="text-gray-600 mb-4">Selecting the perfect rental car can be overwhelming. Here's what you need to consider.</p>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gray-200 w-8 h-8 rounded-full mr-2 flex items-center justify-center">
+                                    <i class="fas fa-user text-gray-400 text-sm"></i>
+                                </div>
+                                <div class="text-sm text-gray-500">Sarah Johnson</div>
+                            </div>
+                            <a href="blog/choosing-rental-car.html" class="text-blue-600 hover:text-blue-700 font-semibold">Read More →</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Article 3 -->
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="bg-gray-200 h-48 flex items-center justify-center">
+                            <i class="fas fa-map-marked-alt text-gray-400 text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-sm text-gray-500 mb-2">March 5, 2024</div>
+                            <h3 class="text-xl font-semibold mb-3">Best Scenic Drives in Morocco</h3>
+                            <p class="text-gray-600 mb-4">Discover the most breathtaking routes and hidden gems Morocco has to offer.</p>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gray-200 w-8 h-8 rounded-full mr-2 flex items-center justify-center">
+                                    <i class="fas fa-user text-gray-400 text-sm"></i>
+                                </div>
+                                <div class="text-sm text-gray-500">Michael Chen</div>
+                            </div>
+                            <a href="blog/morocco-scenic-drives.html" class="text-blue-600 hover:text-blue-700 font-semibold">Read More →</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Article 4 -->
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="bg-gray-200 h-48 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-gray-400 text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-sm text-gray-500 mb-2">February 28, 2024</div>
+                            <h3 class="text-xl font-semibold mb-3">Car Rental Insurance Explained</h3>
+                            <p class="text-gray-600 mb-4">Understanding your insurance options when renting a car.</p>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gray-200 w-8 h-8 rounded-full mr-2 flex items-center justify-center">
+                                    <i class="fas fa-user text-gray-400 text-sm"></i>
+                                </div>
+                                <div class="text-sm text-gray-500">Emily Davis</div>
+                            </div>
+                            <a href="blog/car-rental-insurance.html" class="text-blue-600 hover:text-blue-700 font-semibold">Read More →</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Article 5 -->
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="bg-gray-200 h-48 flex items-center justify-center">
+                            <i class="fas fa-gas-pump text-gray-400 text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-sm text-gray-500 mb-2">February 20, 2024</div>
+                            <h3 class="text-xl font-semibold mb-3">Fuel-Saving Driving Techniques</h3>
+                            <p class="text-gray-600 mb-4">Simple techniques to reduce fuel consumption and save money on your rental.</p>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gray-200 w-8 h-8 rounded-full mr-2 flex items-center justify-center">
+                                    <i class="fas fa-user text-gray-400 text-sm"></i>
+                                </div>
+                                <div class="text-sm text-gray-500">Robert Brown</div>
+                            </div>
+                            <a href="blog/fuel-saving-techniques.html" class="text-blue-600 hover:text-blue-700 font-semibold">Read More →</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Article 6 -->
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="bg-gray-200 h-48 flex items-center justify-center">
+                            <i class="fas fa-suitcase text-gray-400 text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-sm text-gray-500 mb-2">February 15, 2024</div>
+                            <h3 class="text-xl font-semibold mb-3">Packing Smart for Car Travel</h3>
+                            <p class="text-gray-600 mb-4">How to pack efficiently for your road trip adventure.</p>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gray-200 w-8 h-8 rounded-full mr-2 flex items-center justify-center">
+                                    <i class="fas fa-user text-gray-400 text-sm"></i>
+                                </div>
+                                <div class="text-sm text-gray-500">Maria Garcia</div>
+                            </div>
+                            <a href="blog/packing-smart-car-travel.html" class="text-blue-600 hover:text-blue-700 font-semibold">Read More →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="py-16 bg-blue-600 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold mb-4">Stay Updated with Travel Tips</h2>
+                <p class="text-xl mb-8 text-blue-100">Get the latest car rental tips and travel guides delivered to your inbox</p>
+                <form class="max-w-md mx-auto flex gap-4">
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    <button type="submit" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Popular Tags -->
+        <section class="py-12 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="text-xl font-semibold mb-6 text-center">Popular Tags</h3>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer transition-colors">Road Trips</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer transition-colors">Car Maintenance</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer transition-colors">Travel Safety</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer transition-colors">Morocco</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer transition-colors">Fuel Economy</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer transition-colors">Insurance</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer transition-colors">Packing Tips</span>
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer transition-colors">Navigation</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-car text-blue-400 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl">CarRent</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">Your trusted partner for premium car rental services. Experience comfort, reliability, and excellence.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-blue-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-blue-400 transition-colors">About</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-blue-400 transition-colors">Services</a></li>
+                        <li><a href="blog.html" class="text-gray-300 hover:text-blue-400 transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-blue-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contact Info</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-user mr-2"></i>
+                            Sekouti Abdelaziz
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-phone mr-2"></i>
+                            +212612236660
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-envelope mr-2"></i>
+                            sekoutiabdelaziz0@gmail.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2024 CarRent. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/212612236660" target="_blank" class="whatsapp-float bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 fixed bottom-6 right-6 z-40">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Modals -->
+    <div id="modal-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+</html>

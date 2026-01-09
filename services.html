@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - CarRent Premium Car Rental Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-car text-blue-600 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl text-gray-800">CarRent</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">About</a>
+                    <a href="services.html" class="nav-link text-blue-600 font-semibold">Services</a>
+                    <a href="blog.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Blog</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+                    <div id="auth-menu" class="flex items-center space-x-4">
+                        <!-- Auth buttons will be inserted here -->
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Home</a>
+                <a href="about.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">About</a>
+                <a href="services.html" class="mobile-nav-link block px-3 py-2 text-blue-600 font-semibold">Services</a>
+                <a href="blog.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Blog</a>
+                <a href="contact.html" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600">Contact</a>
+                <div id="mobile-auth-menu" class="px-3 py-2 space-y-2">
+                    <!-- Mobile auth buttons will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
+                    <p class="text-xl md:text-2xl text-blue-100">Comprehensive car rental solutions for every need</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Economy Cars -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-car text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Economy Cars</h3>
+                        <p class="text-gray-600 mb-4">Fuel-efficient and budget-friendly options for city driving and short trips.</p>
+                        <ul class="text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Great mileage</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Easy parking</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Affordable rates</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Low maintenance costs</li>
+                        </ul>
+                        <div class="text-2xl font-bold text-blue-600 mb-4">From $25/day</div>
+                        <button onclick="window.location.href='index.html'" class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                            Book Now
+                        </button>
+                    </div>
+                    
+                    <!-- Family Cars -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-users text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Family Cars</h3>
+                        <p class="text-gray-600 mb-4">Spacious vehicles perfect for family vacations and group travel.</p>
+                        <ul class="text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Extra seating</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Ample luggage space</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Safety features</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Comfortable interiors</li>
+                        </ul>
+                        <div class="text-2xl font-bold text-blue-600 mb-4">From $45/day</div>
+                        <button onclick="window.location.href='index.html'" class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                            Book Now
+                        </button>
+                    </div>
+                    
+                    <!-- Luxury Cars -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-gem text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Luxury Cars</h3>
+                        <p class="text-gray-600 mb-4">Premium vehicles for special occasions and business travel.</p>
+                        <ul class="text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Top brands</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Advanced features</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Comfort & style</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Premium experience</li>
+                        </ul>
+                        <div class="text-2xl font-bold text-blue-600 mb-4">From $80/day</div>
+                        <button onclick="window.location.href='index.html'" class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                            Book Now
+                        </button>
+                    </div>
+                    
+                    <!-- SUVs & Trucks -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-truck text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">SUVs & Trucks</h3>
+                        <p class="text-gray-600 mb-4">Powerful vehicles for off-road adventures and heavy-duty tasks.</p>
+                        <ul class="text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>4WD capability</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>High clearance</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Towing capacity</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>All-terrain ready</li>
+                        </ul>
+                        <div class="text-2xl font-bold text-blue-600 mb-4">From $60/day</div>
+                        <button onclick="window.location.href='index.html'" class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                            Book Now
+                        </button>
+                    </div>
+                    
+                    <!-- Electric Vehicles -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-bolt text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Electric Vehicles</h3>
+                        <p class="text-gray-600 mb-4">Eco-friendly electric cars for sustainable transportation.</p>
+                        <ul class="text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Zero emissions</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Quiet operation</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Modern tech</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Lower running costs</li>
+                        </ul>
+                        <div class="text-2xl font-bold text-blue-600 mb-4">From $90/day</div>
+                        <button onclick="window.location.href='index.html'" class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                            Book Now
+                        </button>
+                    </div>
+                    
+                    <!-- Long-term Rentals -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-clock text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Long-term Rentals</h3>
+                        <p class="text-gray-600 mb-4">Flexible monthly and yearly rental options with special rates.</p>
+                        <ul class="text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Discounted rates</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Maintenance included</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Vehicle swap option</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Flexible terms</li>
+                        </ul>
+                        <div class="text-2xl font-bold text-blue-600 mb-4">From $500/month</div>
+                        <button onclick="window.location.href='contact.html'" class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                            Contact Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Services -->
+        <section class="py-16 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Additional Services</h2>
+                    <p class="text-xl text-gray-600">Extra features to enhance your rental experience</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-shield-alt text-blue-600"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">Insurance Coverage</h4>
+                            <p class="text-gray-600 text-sm">Comprehensive insurance options for peace of mind</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-headset text-blue-600"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">24/7 Support</h4>
+                            <p class="text-gray-600 text-sm">Round-the-clock customer assistance</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-map-marked-alt text-blue-600"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">GPS Navigation</h4>
+                            <p class="text-gray-600 text-sm">Free GPS with all rentals</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-baby text-blue-600"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">Child Seats</h4>
+                            <p class="text-gray-600 text-sm">Safety seats for children available</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Plans -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Flexible Pricing Plans</h2>
+                    <p class="text-xl text-gray-600">Choose the plan that best fits your needs</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Daily Plan -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="bg-blue-600 text-white p-6 text-center">
+                            <h3 class="text-xl font-semibold">Daily</h3>
+                            <div class="text-3xl font-bold mt-2">$25-90</div>
+                            <p class="text-blue-100">per day</p>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Free mileage</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Basic insurance</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 24/7 support</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> GPS included</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Weekly Plan -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-blue-600">
+                        <div class="bg-blue-600 text-white p-6 text-center">
+                            <div class="bg-yellow-400 text-blue-900 text-sm font-semibold px-3 py-1 rounded-full inline-block mb-2">Best Value</div>
+                            <h3 class="text-xl font-semibold">Weekly</h3>
+                            <div class="text-3xl font-bold mt-2">$150-500</div>
+                            <p class="text-blue-100">per week</p>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Unlimited mileage</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Full insurance</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 24/7 support</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> GPS + child seat</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Free upgrades</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Monthly Plan -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="bg-blue-600 text-white p-6 text-center">
+                            <h3 class="text-xl font-semibold">Monthly</h3>
+                            <div class="text-3xl font-bold mt-2">$500-2000</div>
+                            <p class="text-blue-100">per month</p>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Unlimited mileage</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Premium insurance</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Dedicated support</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> All extras included</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Vehicle swap option</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 bg-blue-600 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold mb-4">Ready to Book Your Next Adventure?</h2>
+                <p class="text-xl mb-8 text-blue-100">Join thousands of satisfied customers who trust CarRent</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="window.location.href='index.html'" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Browse Cars
+                    </button>
+                    <button onclick="window.location.href='contact.html'" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                        Get Quote
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-car text-blue-400 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl">CarRent</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">Your trusted partner for premium car rental services. Experience comfort, reliability, and excellence.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-blue-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-blue-400 transition-colors">About</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-blue-400 transition-colors">Services</a></li>
+                        <li><a href="blog.html" class="text-gray-300 hover:text-blue-400 transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-blue-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contact Info</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-user mr-2"></i>
+                            Sekouti Abdelaziz
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-phone mr-2"></i>
+                            +212612236660
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-envelope mr-2"></i>
+                            sekoutiabdelaziz0@gmail.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2024 CarRent. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/212612236660" target="_blank" class="whatsapp-float bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 fixed bottom-6 right-6 z-40">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Modals -->
+    <div id="modal-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+</html>
